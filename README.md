@@ -25,11 +25,17 @@ Generalization and memorization can be further distinguished by corrupting a fra
 Currently, this repository reproduces the results from the following papers:
 <details>
 <summary>
-To grok or not to grok: Disentangling generalization and memorization on corrupted algorithmic datasets
+To grok or not to grok: Disentangling generalization and memorization on corrupted algorithmic datasets (<a href="https://arxiv.org/abs/2310.13061">arXiv</a>) [<b>bib</b>]
 </summary>
 
 ```
-@misc{
+@misc{doshi2023grok,
+      title={To grok or not to grok: Disentangling generalization and memorization on corrupted algorithmic datasets}, 
+      author={Darshil Doshi and Aritra Das and Tianyu He and Andrey Gromov},
+      year={2023},
+      eprint={2310.13061},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
 }
 ```
 </details>
