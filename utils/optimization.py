@@ -3,6 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from utils.models import fcn_norm, fcn_norm_only
 
+
+#############################################
+#### Fully connected models optimization ####
+#############################################
+
 @torch.no_grad()
 def check_accuracy_grokking(
     X:torch.Tensor, Y:torch.Tensor, model: nn.Module, dtype, device: str, scaler
@@ -282,3 +287,25 @@ def train_grokking_batchstep(
         print('TRAIN: {0:.2f},  TEST: {1:.2f}'.format(running_train, running_val))
 
     return data
+
+
+
+#########################################
+#### Transformer models optimization ####
+#########################################
+
+def mse_loss(logits: torch.Tensor, Y: torch.LongTensor, num_classes):
+    # device = logits.device
+    dtype = logits.dtype
+    Y = F.one_hot(Y, num_classes = num_classes).to(dtype = dtype)
+    return F.mse_loss(logits, Y)
+
+
+def cse_loss(logits: torch.Tensor, Y: torch.LongTensor, num_classes):
+    return F.cross_entropy(logits, Y)
+
+
+@torch.no_grad()
+def check_accuracy(logits: torch.Tensor, Y: torch.LongTensor):
+    pred = torch.argmax(logits, dim = -1)
+    return (torch.sum(pred == Y) / pred.size(0)).cpu()
