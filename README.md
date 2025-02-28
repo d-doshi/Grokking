@@ -15,6 +15,7 @@ Generalization and memorization can be further distinguished by corrupting a fra
 **Notebooks**: Demo notebooks
 - Grokking_modular_arithmetic.ipynb : Reproduces grokking on modular addition with a 2-layer MLP [2]. Demonstrates periodic weights, generalizing features etc.
 - Grokking_with_label_corruption.ipynb : Reproduces all the results with label corruption [3], including training curves, effect of various regularization techniques, IPR analysis etc.
+- Grokking_with_transformer.ipynb : Basic code for grokking modular arithmetic with decoder-only Transformers.
 
 **Training_scripts**: Training scripts for reproducing the phase diagrams in [3].
 
